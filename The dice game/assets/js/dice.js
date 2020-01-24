@@ -1,35 +1,36 @@
 var player1 = document.querySelector("#p1");
 var player2 = document.querySelector("#p2");
+var p1current = document.querySelector("#p1current h1");
+var p2current = document.querySelector("#p2current h1");
+var p1total = document.querySelector("#p1total");
+var p2total = document.querySelector("#p2total")
+var img1 = document.querySelector("#image1");
+var img2 = document.querySelector("#image2");
 var hold = document.querySelector("#hold");
 var roll = document.querySelector("#roll");
 var newGame = document.querySelector("#newgame");
-var p2Display = document.querySelector(".p2dis");
-var p1Total = document.querySelector("#p1total h1");
-var p2Total = document.querySelector("#p2total h1");
-var img1 = document.querySelector("#image1");
 var turn = 1;
-var p = 'p' + turn + 'Display';
-var t = "p" + turn + "Total";
-var roundScore;
-
-function classToggler() {
-	player1.classList.toggle("active");
-	player2.classList.toggle("active");
-}
+var final = document.querySelector("#final");
+var pHead1 = document.querySelector(".phead1");
+var pHead2 = document.querySelector(".phead2");
+var win = 100;
 
 hold.addEventListener("click", function(){
 	classToggler();
-	if(turn === 2)
-	{
-		turn = 1;
-	}
-	else 
-	{ 
+	checker();
+	if(turn === 1) {
 		turn = 2;
+		p1total.textContent = Number(p1total.textContent) + Number(p1current.textContent);
 	}
- 	p = "p" + turn + "Display";
-	t = "p" + turn + "Total";
-
+	else { 
+		turn = 1;
+		p2total.textContent = Number(p2total.textContent) + Number(p2current.textContent);
+	}
+	p1current.textContent = 0;
+	p2current.textContent = 0;
+	return turn;
+	img1.style.display = "block";
+	img2.style.display = "block";
 
 });
 
@@ -37,37 +38,94 @@ newGame.addEventListener("click", function(){
 	reseter();
 });
 
+roll.addEventListener("click", function(){
+	var random1 = randomizer1();
+	var random2 = randomizer2();
+	if(random1 === 1 || random2 === 1){
+		random1 = 0;
+		random2 = 0;
+		classToggler();
+		img1.style.display = "none";
+		img2.style.display = "none";
+
+		if(turn === 1){
+			p1current.textContent = 0;
+			turn = 2;
+		}
+		else if (turn === 2){
+			p2current.textContent = 0;
+			turn = 1;
+		}
+	}
+	else {
+			diceimgs(random1 , random2);
+		 }
+
+    if(turn === 1) {
+		p1current.textContent = Number(p1current.textContent) + random1 + random2;
+	}
+	else if(turn === 2) {
+		p2current.textContent = Number(p2current.textContent) + random1 + random2;
+	}
+
+});
+
+final.addEventListener("change", function(){
+	winScore();
+	reseter();
+});
+
+function classToggler() {
+	player1.classList.toggle("active");
+	player2.classList.toggle("active");
+};
+
+function randomizer1() {
+	var random1 = Math.floor(Math.random()*6 + 1);
+	return random1;
+};
+
+function randomizer2() {
+	var random2 = Math.floor(Math.random()*6 + 1);
+	return random2;
+};
+
 function reseter() {
-	p1Display.textContent = "0";
-	p2Display.textContent = "0";
-	p1Total.textContent = "0";
-	p2Total.textContent = "0";
+	p1current.textContent = "0";
+	p2current.textContent = "0";
+	p1total.textContent = "0";
+	p2total.textContent = "0";
 	player1.classList.add("active");
 	player2.classList.remove("active");
 	turn = 1;
-}
+	pHead1.classList.remove("winner");
+	pHead2.classList.remove("winner");
+};
 
-function randomizer() {
-	var random = Math.floor(Math.random()*6 + 1);
-	return random;
-}
+function diceimgs(num1 , num2){
+	img1.setAttribute("src","imgs/dice" + num1 + ".png");
+	img2.setAttribute("src","imgs/dice" + num2 + ".png");
+};
 
-roll.addEventListener("click", function(){
-	var score = document.querySelector('.p' + turn + 'dis').textContent;
-	var ran = randomizer();
+function winScore(){
+	if(final.value === ""){
+		win = 100;
+	}else {
+		win = Number(final.value);
+	}
+	return win;
+};
 
-	if (ran !== 1) {
-            //Add score
-            roundScore += ran;
-            document.querySelector('.p' + turn + 'dis').textContent = roundScore;
-        } else {
-            //Next player
-            nextPlayer();
-        }
-	
-
-	// p.textContent = score;
-	// img1.src = "imgs/dice" + ran + ".png";
-	// console.log(text);
-	// // console.log(p.textContent);
-});
+function checker(){
+     win = winScore();
+	if(Number(p1total.textContent) >= win)
+	{
+		pHead1.textContent = "Winner";
+		pHead1.classList.add("winner");
+	}
+	else if(Number(p2total.textContent) >= win)
+	{
+		pHead2.textContent = "Winner";
+		pHead2.classList.add("winner");
+	}
+};
