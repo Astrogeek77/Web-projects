@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  	display: flex;
+  	background: #eee url('https://source.unsplash.com/1600x900/?wallpapers') no-repeat
+    	center center/cover;
+  	height: 100vh;
+  	width: 100%;
+ 	overflow: hidden;
+}
+
+.container {
+	background-color: #332c00;
+	background-image: url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png");
+	margin: 0 auto;
+	margin-top: 100px;
+	height: 550px;
+	width: 700px;
+	text-align: center;
+	padding: 100px;
+	border-radius: 5%;
+	border: 1px solid #edf09e;
+}
+
+td {
+	border: 5px solid black;
+	width: 120px;
+	height: 120px;
+	background-color: #edf09e;
+	background-image: url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png");
+	color: blue;
+	font-size: 100px;
+	border-radius: 5%;
+}
+
+table {
+	margin-left: 70px;
+	margin-bottom: 10px;
+	padding: 0;
+	border-collapse: collapse;
+	min-width: 304px;
+	min-height: 360px;
+}
+
+#player {
+  padding: 1rem;
+  padding-bottom: 2rem;
+  color: #edf09e;
+  font-size: 30px;
+}
+

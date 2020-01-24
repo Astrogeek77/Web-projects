@@ -1,0 +1,103 @@
+body {
+    font-family: 'Julius Sans One', sans-serif;
+    background-color: gray;
+    -webkit-user-select: none;
+}
+
+.main {
+    height: 600px;
+    width: 1000px;
+    background-color: white;
+    margin: 30px auto;
+}
+
+#p1 , #p2 {
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    float: left;
+}
+
+.active {
+    background-color: #E3E3E6;
+}
+
+#p1score , #p2score {
+    font-size: 80px;
+    font-weight: 100;
+    margin-top: 20px;
+    color: rgb(255, 71, 71) ;
+}
+
+#p1s , #p2s {
+    text-align: center;
+    padding-top: 50px;
+}
+
+#p1total , #p2total {
+    width: 130px;
+    height: 80px;
+    margin: auto;
+    margin-top: 200px;
+    background-color: rgb(255, 71, 71);
+    padding: 15px;
+    padding-bottom: 20px;
+}
+
+.phead {
+    font-weight: 100;
+}
+
+h5 {
+    text-align: center;
+    margin-top: 0;
+}
+
+#p1total h1 , #p2total h1 {
+    color: white;
+    font-size: 45px;
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+#newgame , #roll , #hold , #final {
+    position: absolute;
+    text-align: center;
+    font-weight: 100;
+    font-size: 22px;
+}
+
+#newgame {
+    left: 45.7%;
+    top: 80px;
+}
+
+#roll {
+    left: 45.7%;
+    top: 450px;
+}
+
+#hold {
+    left: 47.7%;
+    top: 500px;
+}
+
+#final {
+    left: 42.6%;
+    top: 550px;
+    padding: 1rem 2rem;
+    border: solid rgb(255, 71, 71) 1px ;
+    background-color: white;
+    width: 150px;
+    text-align: center;
+}
+
+#image1 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 46%;
+    top: 200px;
+}
