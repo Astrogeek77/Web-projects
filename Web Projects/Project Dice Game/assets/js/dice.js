@@ -13,6 +13,7 @@ var turn = 1;
 var final = document.querySelector("#final");
 var pHead1 = document.querySelector(".phead1");
 var pHead2 = document.querySelector(".phead2");
+var fas = document.querySelector(".fas");
 var win = 100;
 
 hold.addEventListener("click", function(){
@@ -66,14 +67,14 @@ roll.addEventListener("click", function(){
 
 		if(turn === 1){
 			p1current.textContent = 0;
-			document.querySelector(".p1i").style.color = "#EB4D4D";
-			document.querySelector(".p2i").style.color = "white";
+			document.querySelector(".p2i").style.color = "#EB4D4D";
+			document.querySelector(".p1i").style.color = "white";
 			turn = 2;
 		}
 		else if (turn === 2){
 			p2current.textContent = 0;
-			document.querySelector(".p2i").style.color = "#EB4D4D";
-			document.querySelector(".p1i").style.color = "white";
+			document.querySelector(".p1i").style.color = "#EB4D4D";
+			document.querySelector(".p2i").style.color = "white";
 			turn = 1;
 		}
 	}
@@ -98,6 +99,15 @@ final.addEventListener("change", function(){
 function classToggler() {
 	player1.classList.toggle("active");
 	player2.classList.toggle("active");
+	if(turn === 1){
+			document.querySelector(".p1i").style.color = "#EB4D4D";
+			document.querySelector(".p2i").style.color = "white";
+		}
+		else if (turn === 2){
+			document.querySelector(".p2i").style.color = "#EB4D4D";
+			document.querySelector(".p1i").style.color = "white";
+		}
+
 }; 	
 
 function randomizer1() {
@@ -119,11 +129,11 @@ function reseter() {
 	player2.classList.remove("active");
 	turn = 1;
 	pHead1.classList.remove("winner");
-	pHead1.textContent = "PLAYER 1";
+	pHead1.innerHtml = '<h1 class="phead1">Player 1 <i class="fas fa-play p1i"></i></h1>'
 	pHead2.classList.remove("winner");
-	pHead2.textContent = "PLAYER 2";
-	document.querySelector(".p1i").classList.add("color1");
-	document.querySelector(".p2i").classList.add("color2");
+	pHead2.innerhtml = '<h1 class="phead2">player 2 <i class="fas fa-play p2i"></i></h1>';
+	document.querySelector(".p1i").style.color = "#EB4D4D";
+	document.querySelector(".p2i").style.color = "white";
 };
 
 function diceimgs(num1 , num2){
