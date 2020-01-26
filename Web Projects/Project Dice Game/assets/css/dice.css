@@ -9,7 +9,7 @@ body {
     height: 650px;
     width: 1000px;
     background-color: white;
-    margin: 30px auto;
+    margin: 25px auto;
 }
 
 #p1 , #p2 {
@@ -25,18 +25,18 @@ body {
     font-weight: bold;
 }
 
-
-
 #p1total , #p2total {
     font-size: 100px;
     font-weight: 100;
     margin-top: 20px;
     color: rgb(255, 71, 71) ;
 }
+
 #p1score , #p2score {
     text-align: center;
     padding-top: 50px;
 }
+
 #p1current , #p2current {
     width: 130px;
     height: 80px;
@@ -46,13 +46,17 @@ body {
     padding: 15px;
     padding-bottom: 20px;
 }
+
 .phead1 , .phead2 {
     font-weight: 100;
+    font-size: 32px;
 }
+
 h5 {
     text-align: center;
     margin-top: 0;
 }
+
 #p1current h1 , #p2current h1 {
     color: white;
     font-size: 45px;
@@ -89,6 +93,7 @@ h5 {
     width: 200px;
     text-align: center;
 }
+
 #image1 {
     position: absolute;
     width: 100px;

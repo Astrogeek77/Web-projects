@@ -50,6 +50,7 @@ newGame.addEventListener("click", function(){
 	final.value = "";
 	img1.style.display = "block";
 	img2.style.display = "block";
+	enabler();
 });
 
 roll.addEventListener("click", function(){
@@ -129,9 +130,11 @@ function reseter() {
 	player2.classList.remove("active");
 	turn = 1;
 	pHead1.classList.remove("winner");
-	pHead1.innerHtml = '<h1 class="phead1">Player 1 <i class="fas fa-play p1i"></i></h1>'
+	pHead1.innerHTML = '<h1 class="phead1">Player 1 <i class="fas fa-play p1i"></i></h1>';
+	pHead1.style.fontSize = "40px";
 	pHead2.classList.remove("winner");
-	pHead2.innerhtml = '<h1 class="phead2">player 2 <i class="fas fa-play p2i"></i></h1>';
+	pHead2.innerHTML = '<h1 class="phead2">player 2 <i class="fas fa-play p2i"></i></h1>';
+	pHead2.style.fontSize = "40px"
 	document.querySelector(".p1i").style.color = "#EB4D4D";
 	document.querySelector(".p2i").style.color = "white";
 };
@@ -156,17 +159,18 @@ function checker(){
 	{
 		pHead1.textContent = "Winner!";
 		pHead1.classList.add("winner");
-		Disabler();
 		player1.classList.add("active");
 		player2.classList.remove("active");
+		Disabler();
+
 	}
 	else if(Number(p2total.textContent) >= win)
 	{
 		pHead2.textContent = "Winner!";
 		pHead2.classList.add("winner");
-		Disabler();
 		player2.classList.add("active");
 		player1.classList.remove("active");
+		Disabler();
 	}
 };
 
